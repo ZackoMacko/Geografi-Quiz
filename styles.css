@@ -1,0 +1,348 @@
+
+body{
+    overflow: hidden;
+    background-color: #FCFFE9;
+  
+}
+
+.header{
+    grid-area: header0;
+    background-color: blue; 
+}
+
+h3{
+    font-weight: normal;
+}
+
+h1{
+    font-weight: bold;
+}
+
+.text{
+    grid-area:text0;
+}
+.flexbox-body-text{
+   
+    display: flex;
+    
+    flex-direction: row;
+    column-gap: 1%;
+    justify-content: center;
+   
+}
+
+.question{
+    text-align: center;
+}
+
+.number{
+    text-align: center;
+}
+.question-text{
+    text-align: center;
+}
+
+.start-button-flexbox{
+    /*
+    I JS byt från flex--> none efter knappen har tryckts
+    sedan, bereonde på vilken typ av fråga ska respektive display ändras från none-->grid
+    och grid--> när de inte används längre.
+    */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    
+}
+
+.header-flexbox{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    column-gap:1%;
+
+    padding-left: 1%;
+}
+
+.start-page{
+    /* flex <-- |--->none is CSS*/
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.restart-button{
+    grid-area:header0;
+    
+    width: 12vw;
+    height: 5vh;
+    color: black;
+    background-color: white;
+    border-style: solid;  
+}
+
+.start-button{
+    width: 12vw;
+    height: 7vh;
+    color: black;
+    background-color: #CA3203;
+    border-style: none;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+    
+}
+.start-button:hover{
+    background-color: #b62d03;   
+    border-style: solid;
+}
+
+.start-button:active{
+    background-color: #a22802;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+@media only screen and (max-width:2000px) {
+
+    .start-button{
+        width: 15vw;
+        height: 9vh;
+        font-size:large;
+    }
+    
+}
+
+@media only screen and (max-width:1400px) {
+
+    .start-button{
+        width: 50vw;
+        height: 6vh;
+        font-size:larger;
+    }
+    
+}
+
+
+@media only screen and (max-width:500px) {
+
+    .start-button{
+        width: 55vw;
+        height: 8vh;
+        font-size: medium;
+    }
+    
+}
+
+.footer{
+    grid-area: footer;
+    text-align: center;
+}
+
+/*
+* poly picture grid
+*/
+.grid-container-text-type{
+    display:none;
+    width:100%;
+    height: auto;
+    
+
+    grid-template-columns:1fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-rows: 5vh 25vh 15vh 20vh 20vh 5vh;
+
+    grid-template-areas: 
+    "header0 header1 header1 header1 header1 header1"
+    ". image0 image1 image2 image3 ."
+    ". text0 text0 text0 text0 ."
+    ". option0 option0 option1 option1 ."
+    ". option2 option2 option3 option3 ."
+    "footer footer footer footer footer footer";
+    
+    gap:10px;
+   
+}
+
+
+
+/*
+* Present choices for the User
+*/
+
+.grid-item0{
+    grid-area:option0;
+    border-style: solid;
+    border-radius: 5px;
+   
+
+    
+    background-color:  #FDE0D9;
+
+    text-align: center;
+    width: 35vw;
+    height: 17vh;
+
+    align-self:end;
+    margin-left:auto;
+}
+.grid-item1{
+    grid-area: option1;
+    border-style: solid;
+    border-radius: 5px;
+ 
+ 
+    background-color: #FFF2CC;
+
+    text-align: center;
+    width: 35vw;
+    height: 17vh;
+    
+    align-self:end;
+}
+
+.grid-item2{
+    grid-area: option2;
+    border-style: solid;
+    border-radius: 5px;
+ 
+    background-color:  #CAEFD1;
+
+    text-align: center;
+    width: 35vw;
+    height: 17vh;
+    margin-left:auto;
+}
+
+.grid-item3{
+    grid-area: option3;
+    border-style: solid;
+    border-radius: 5px;
+ 
+    background-color: #CAF4F4;
+    text-align: center;
+    width: 35vw;
+    height: 17vh;
+}
+
+.flexbox0{
+    display: flex;
+    flex-direction: column;
+}
+.flexbox1{
+
+    display: flex;
+    flex-direction: column;
+}
+.flexbox2{
+
+    display: flex;
+    flex-direction: column; 
+}
+.flexbox3{
+
+    display: flex;
+    flex-direction: column;   
+}
+
+/*
+* Present alternatives for the user
+*/
+.quest-item0{
+    grid-area: image0;
+    border-style: solid;
+ 
+ 
+}
+.quest-item1{
+    grid-area: image1;
+    border-style: solid;
+ 
+   
+}
+.quest-item2{
+    grid-area: image2;
+    border-style: solid;
+ 
+   
+}
+.quest-item3{
+    grid-area: image3;
+    border-style: solid;
+ 
+}
+
+
+
+/*
+* mono picture grid type
+*/
+
+.grid-container-mono-picture-type{
+    display:grid;
+    width:100%;
+    height: auto;
+    
+
+    grid-template-columns:1fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-rows: 5vh 25vh 15vh 20vh 20vh 5vh;
+
+    grid-template-areas: 
+    "header0 header1 header1 header1 header1 header1"
+    ". . image image . ."
+    ". text text text text ."
+    ". option0 option0 option1 option1 ."
+    ". option2 option2 option3 option3 ."
+    "footer footer footer footer footer footer";
+    
+    gap:10px;
+    
+}
+
+.quest-alternative-flexbox{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
+  
+}
+
+.quest-item{
+    grid-area:image;
+    place-items: center
+    
+}
+
+.mono-image{
+
+    width: 100%;
+    height:100% ;
+}
+
+.text-flexbox{
+    grid-area:text;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
+/*
+.Option-grid{
+    
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10vw 10vw;
+    display: grid;
+    background-color:none;
+}
+
+.option-item0{
+    grid-area: option;
+    background-color: orange;
+}
+
+.option-item1{
+
+    background-color: orange;
+}
+
+*/

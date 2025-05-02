@@ -1,1 +1,1 @@
-# Geografi-Quiz
+# Quiz

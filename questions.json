@@ -1,0 +1,258 @@
+[
+    {
+        "bild": "images/frankrike.png",
+        "nummer":"1",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
+       
+        "svar": [
+            "Tyskland",
+            "Frankrike",
+            "Italien",
+            "Kroatien"
+        ],
+        "korrekt": 1
+    },
+    {
+        "bild": "images/australien.png",
+        "nummer":"2",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
+        "svar": [
+            "Australien",
+            "Storbritannien",
+            "Nya Zeeland",
+            "Cooköarna"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "images/kina.png",
+        "nummer":"3",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
+        "svar": [
+            "Taiwan",
+            "Vietnam",
+            "Kina",
+            "Sydkorea"
+           
+        ],
+        "korrekt": 2
+    },
+    {
+        "bild": " images/spanien.png",
+        "nummer":"4",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
+        "svar": [
+            "Malta",
+            "Portugal",
+            "Somalia",
+            "Spanien"
+        ],
+        "korrekt": 3
+    },
+    {
+        "bild": "images/brasilien.png",
+        "nummer":"5",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
+        "svar": [
+            "Brasilien",
+            "Bolivia",
+            "Chile",
+            "Uruguay"
+        ],
+        "korrekt": 0
+    }
+
+    ,
+
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    }
+
+    ,
+
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    },
+    {
+        "bild": "",
+        "nummer":"tre",
+        "typ":"",
+        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "svar": [
+            "1492",
+            "1521",
+            "1607",
+            "1776"
+        ],
+        "korrekt": 0
+    }
+
+]
