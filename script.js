@@ -31,11 +31,13 @@ var polyPicture3 = document.getElementById("questitem3");
 var startButton= document.getElementById("startbutton");
 var restartButton = document.getElementById("restartbutton");
 
-let images = [];
-let numbers =[];
-let type=[];
+let images ;
+let numbers ;
+let type;
+
 var answerText;
-let answers = [];
+let answers ;
+let answersAmount;
 var correctanswer;
 
 let userOptions= [];
@@ -43,26 +45,60 @@ let userOptions= [];
 var questionData;
 
 
-function UserOptions() {
-    userOptions = [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
-}
 
 function fetchQuestionData() {
-
+   
     fetch("./data/questions.json")
     .then((response) =>  response.json())
-
     .then((data) => {
     questionData = data;   
+
+    //Såhär komplar man en array till en JSON-fil där man efterkräver ett en viss data.
+    const images = questionData.map(item => item.bild).flat();
+    const quizNumber = questionData.map(item=> item.nummer).flat();
+    const userOptions = questionData.map(item => item.svar);
+    const quizQuestions = questionData.map(item => item.fraga)
+
+    console.log(data);
+
+    anwsersAmount = quizNumber.length;
+
+    localStorage.setItem("quiz-images",JSON.stringify(images));
+    localStorage.setItem("quiz-images",JSON.stringify(quizNumber));
+    localStorage.setItem("quiz-images",JSON.stringify(userOptions));
+    localStorage.setItem("quiz-images",JSON.stringify(quizQuestions));
+  
+    /**
+     * Detta är för individuella egenskaper från Json-filen
+     * const firstImagePath = questionData[0].bild;
+    const test = questionData[0].nummer;
+    console.log(test);
+    console.log("First image path:", firstImagePath);
+     */
+    
+   
     return data
     })
 
     .catch(error => console.error('Failed to fetch data:', error)); 
+
+
+
+
 };
 
+
+function UserOptions() {
+    userOptions = [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
+};
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    Main();
+});
 
 
 function Main()
 {
-
+    fetchQuestionData();
 }
