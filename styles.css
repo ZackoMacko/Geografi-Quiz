@@ -4,11 +4,13 @@ body{
     background-color: #FCFFE9;
   
 }
-
+/*
 .header{
-    grid-area: header0;
+    width: 50vw;
     background-color: blue; 
 }
+
+*/
 
 h3{
     font-weight: normal;
@@ -28,6 +30,9 @@ h1{
     flex-direction: row;
     column-gap: 1%;
     justify-content: center;
+    
+    border-bottom-style: dotted;
+    
    
 }
 
@@ -72,6 +77,16 @@ h1{
     justify-content: space-between;
 }
 .restart-button{
+    grid-area:header1;
+    
+    width: 12vw;
+    height: 5vh;
+    color: black;
+    background-color: white;
+    border-style: solid;  
+}
+
+.to-start-page-button{
     grid-area:header0;
     
     width: 12vw;
@@ -141,8 +156,8 @@ h1{
 /*
 * poly picture grid
 */
-.grid-container-text-type{
-    display:none;
+.grid-container-poly-picture-type{
+    display:grid;
     width:100%;
     height: auto;
     
@@ -151,7 +166,7 @@ h1{
     grid-template-rows: 5vh 25vh 15vh 20vh 20vh 5vh;
 
     grid-template-areas: 
-    "header0 header1 header1 header1 header1 header1"
+    "header0 header1 header2 header2 header2 header3"
     ". image0 image1 image2 image3 ."
     ". text0 text0 text0 text0 ."
     ". option0 option0 option1 option1 ."
@@ -246,29 +261,75 @@ h1{
 /*
 * Present alternatives for the user
 */
+
 .quest-item0{
     grid-area: image0;
-    border-style: solid;
- 
+    border-style: none;
+    align-self:end;
+    align-content:flex-end;
  
 }
+
+.quest-alternative-flexbox0{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+.Letter0{
+    text-align: center;
+    margin-right: 28%;
+}
+
 .quest-item1{
     grid-area: image1;
-    border-style: solid;
- 
-   
+    border-style: none;
+    align-content: flex-end; 
 }
+
+.quest-alternative-flexbox1{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+.Letter1{
+    text-align: center;
+    margin-right: 28%;
+}
+
+
+
 .quest-item2{
     grid-area: image2;
-    border-style: solid;
- 
-   
+    border-style: none;
+    align-content: flex-end;
 }
+
+.quest-alternative-flexbox2{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+.Letter2{
+    text-align: center;
+    margin-right: 28%;
+}
+
 .quest-item3{
     grid-area: image3;
-    border-style: solid;
- 
+    border-style: none;
+    align-content: flex-end;
 }
+.quest-alternative-flexbox3{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+.Letter3{
+    text-align: center;
+    margin-right: 28%;
+}
+
+
 
 
 
@@ -277,7 +338,7 @@ h1{
 */
 
 .grid-container-mono-picture-type{
-    display:grid;
+    display:none;
     width:100%;
     height: auto;
     

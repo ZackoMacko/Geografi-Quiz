@@ -20,16 +20,22 @@ var answerGridItem3 = document.getElementById("item3");
 /**
  * Variables for the images for the poly-image-grid:
  */
-var polyPicture0 = document.getElementById("questitem0");
-var polyPicture1 = document.getElementById("questitem1");
-var polyPicture2 = document.getElementById("questitem2");
-var polyPicture3 = document.getElementById("questitem3");
+var polyPicture0 = document.getElementById("poly-image-0");
+var polyPicture1 = document.getElementById("poly-image-1");
+var polyPicture2 = document.getElementById("poly-image-2");
+var polyPicture3 = document.getElementById("poly-image-3");
+
+let polyPictures = [polyPicture0,polyPicture1,polyPicture3,polyPicture4];
 
 /**
  * Variable for the start-page-grid:
  */
-var startButton= document.getElementById("startbutton");
+
+/**
+ * var startButton= document.getElementById("startbutton");
 var restartButton = document.getElementById("restartbutton");
+ */
+
 
 let images ;
 let numbers ;
@@ -64,9 +70,9 @@ function fetchQuestionData() {
     anwsersAmount = quizNumber.length;
 
     localStorage.setItem("quiz-images",JSON.stringify(images));
-    localStorage.setItem("quiz-images",JSON.stringify(quizNumber));
-    localStorage.setItem("quiz-images",JSON.stringify(userOptions));
-    localStorage.setItem("quiz-images",JSON.stringify(quizQuestions));
+    localStorage.setItem("quiz-number",JSON.stringify(quizNumber));
+    localStorage.setItem("quiz-userOptions",JSON.stringify(userOptions));
+    localStorage.setItem("quiz-questions",JSON.stringify(quizQuestions));
   
     /**
      * Detta är för individuella egenskaper från Json-filen
@@ -74,31 +80,115 @@ function fetchQuestionData() {
     const test = questionData[0].nummer;
     console.log(test);
     console.log("First image path:", firstImagePath);
-     */
-    
-   
+     */   
     return data
     })
 
     .catch(error => console.error('Failed to fetch data:', error)); 
-
-
-
-
 };
 
 
 function UserOptions() {
-    userOptions = [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
+    /*
+    *userOptions = [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
+    */
+};
+const polyPictureGrid = document.getElementById("poly-picture-grid");
+const monoPictureGrid = document.getElementById("mono-picture");
+const startButton = document.getElementById("startbutton");
+const startPage= document.getElementById("start-page");
+const restartButton = document.getElementById("restartbutton");
+
+startButton.addEventListener("click",StartQuiz);
+restartButton.addEventListener("click",ResetQuiz);
+let hasQuizStarted= false;
+
+function StartQuiz()
+{
+   startPage.style.display = "none" 
+}
+
+function ResetQuiz()
+{
+    startPage.style.display = "none";
+    polyPictureGrid.style.display = "none";
+    monoPictureGrid.style.display= "none";
+}
+
+function DisplayStartPage()
+{
+    startPage.style.display = "flex";
+    polyPictureGrid.style.display = "none";
+    monoPictureGrid.style.display= "none";
+}
+
+
+
+
+function DisplayMonoPictureQuestion(nummer)
+{
+    polyPictureGrid.style.display = "none";
+    monoPictureGrid.style.display= "grid";
+
+    monoPictureGrid = questionData.bild[nummer];
+    
 };
 
 
+function DisplayPolyPictureQuestion(nummer)
+{
+    monoPictureGrid.style.grid = "none";
+    polyPictureGrid.style.display = "grid";
+
+    
+   
+}
+
+/**
+ * Denna är inte implmenterad i HTML eller CSS
+ */
+function TextQuestion()
+{
+
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+    fetchQuestionData();
     Main();
 });
 
 
 function Main()
 {
-    fetchQuestionData();
+    if(!hasQuizStarted)
+    {
+        DisplayStartPage();
+    }
+    else
+    {
+        for( let i=0; i<questionData.nummmer.length;i++)
+            {
+                if(questionData[i].typ==mono-image)
+                {
+                    DisplayMonoPictureQuestion(i);
+                }
+        
+                else if (questionData[i].typ==poly-image)
+                {
+                    DisplayPolyPictureQuestion(i);
+                }
+                /**
+                 * Detta är för den tredje typen av frågor
+                 * else if()
+                {
+                    
+                }
+                 */
+                
+            }
+    }
+
+    
+    
+
 }
