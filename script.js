@@ -59,7 +59,7 @@ function fetchQuestionData() {
     const userOptions = questionData.map(item => item.svar);
     const quizQuestions = questionData.map(item => item.fraga)
 
-    console.log(data);
+    //console.log(data);
 
     anwsersAmount = quizNumber.length;
 
