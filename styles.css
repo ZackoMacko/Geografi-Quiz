@@ -72,7 +72,7 @@ h1{
 
 .start-page{
     /* flex <-- |--->none is CSS*/
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -157,7 +157,7 @@ h1{
 * poly picture grid
 */
 .grid-container-poly-picture-type{
-    display:grid;
+    display:none;
     width:100%;
     height: auto;
     
