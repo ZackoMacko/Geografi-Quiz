@@ -47,6 +47,17 @@ h1{
     text-align: center;
 }
 
+.next-button{
+    grid-area:header2;
+    
+    width: 12vw;
+    height: 5vh;
+    color: black;
+    background-color: white;
+    border-style: solid;  
+    display: none;
+}
+
 .start-button-flexbox{
     /*
     I JS byt från flex--> none efter knappen har tryckts
@@ -199,6 +210,18 @@ h1{
     align-self:end;
     margin-left:auto;
 }
+.grid-item0:hover{
+    background-color: #e4cac3;   
+    border-style: solid;
+}
+
+.grid-item0:active{
+    background-color: #cab3ae;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
 .grid-item1{
     grid-area: option1;
     border-style: solid;
@@ -214,6 +237,18 @@ h1{
     align-self:end;
 }
 
+
+.grid-item1:hover{
+    background-color: #e6dab8;   
+    border-style: solid;
+}
+
+.grid-item1:active{
+    background-color: #ccc2a3;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
 .grid-item2{
     grid-area: option2;
     border-style: solid;
@@ -227,6 +262,17 @@ h1{
     margin-left:auto;
 }
 
+.grid-item2:hover{
+    background-color: #b6d7bc;   
+    border-style: solid;
+}
+
+.grid-item2:active{
+    background-color: #a2bfa7;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
 .grid-item3{
     grid-area: option3;
     border-style: solid;
@@ -238,10 +284,27 @@ h1{
     height: 17vh;
 }
 
-.flexbox0{
-    display: flex;
-    flex-direction: column;
+
+
+.grid-item3:hover{
+    background-color: #b6dcdc;   
+    border-style: solid;
 }
+.grid-item3:active{
+    background-color: #a2c3c3;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.buttoncontent{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: left;
+    column-gap: 1%;
+    
+}
+
+
 .flexbox1{
 
     display: flex;
@@ -382,6 +445,13 @@ h1{
     grid-area:text;
     display: flex;
     justify-content: center;
+    
+}
+
+.correct-answers{
+    grid-area:header0;
+    text-wrap: nowrap;
+    font-size: small;
     
 }
 

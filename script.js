@@ -12,20 +12,21 @@
 /**
  * Variables for the choice boxes the user can choose between:
  */
-var answerGridItem0 = document.getElementById("item0");
-var answerGridItem1 = document.getElementById("item1");
-var answerGridItem2 = document.getElementById("item2");
-var answerGridItem3 = document.getElementById("item3");
+var answerGridItem0 = document.getElementById("button-content");
+var answerGridItem1 = document.getElementById("button-content");
+var answerGridItem2 = document.getElementById("button-content");
+var answerGridItem3 = document.getElementById("button-content");
+const answerButtons= [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
 
 /**
  * Variables for the images for the poly-image-grid:
  */
-var polyPicture0 = document.getElementById("poly-image-0");
-var polyPicture1 = document.getElementById("poly-image-1");
-var polyPicture2 = document.getElementById("poly-image-2");
-var polyPicture3 = document.getElementById("poly-image-3");
+//var polyPicture0 = document.getElementById("poly-image-0");
+//var polyPicture1 = document.getElementById("poly-image-1");
+//var polyPicture2 = document.getElementById("poly-image-2");
+//var polyPicture3 = document.getElementById("poly-image-3");
 
-let polyPictures = [polyPicture0,polyPicture1,polyPicture2,polyPicture3];
+//let polyPictures = [polyPicture0,polyPicture1,polyPicture2,polyPicture3];
 
 /**
  * Variable for the start-page-grid:
@@ -36,19 +37,20 @@ let polyPictures = [polyPicture0,polyPicture1,polyPicture2,polyPicture3];
 var restartButton = document.getElementById("restartbutton");
  */
 
-let polyPictureGrid = document.getElementById("poly-picture-grid");
+//let polyPictureGrid = document.getElementById("poly-picture-grid");
 let monoPictureGrid = document.getElementById("mono-picture");
 const startButton = document.getElementById("startbutton");
 const startPage= document.getElementById("start-page");
 const restartButton = document.getElementById("restartbutton");
-
+const nextButton = document.getElementById("nextbutton");
 
 //restartButton.addEventListener("click",ResetQuiz);
 let hasQuizStarted;
 let hasQuizEnded= false;
+let hasUserAnswered = false;
 
 let monoImage = document.getElementById("mono-image");
-
+const monoQuestionText = document.getElementById("mono-text");
 
 let images ;
 let numbers ;
@@ -59,13 +61,13 @@ let answers ;
 let answersAmount;
 var correctanswer;
 
-let userOptions= [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
 
-const flexbox0 = document.getElementById("alternativetextbox0");
-const flexbox1 = document.getElementById("alternativetextbox1");
-const flexbox2 = document.getElementById("alternativetextbox2");
-const flexbox3 = document.getElementById("alternativetextbox3");
-let monoUserOptions= [flexbox0,flexbox1,flexbox2,flexbox3];
+
+//const flexbox0 = document.getElementById("alternativetextbox0");
+//const flexbox1 = document.getElementById("alternativetextbox1");
+//const flexbox2 = document.getElementById("alternativetextbox2");
+//const flexbox3 = document.getElementById("alternativetextbox3");
+//let answerButtons= [flexbox0,flexbox1,flexbox2,flexbox3];
 let questionData;
 
 
@@ -147,47 +149,85 @@ function DisplayStartPage()
 
 function SetAlternativsForUser(index)
 {
-    for(let i=0 ; i<userOptions.length; i++)
-    {
-
-    }
+   
 }
 
-function DisplayMonoPictureQuestion(nummer)
+function DisplayMonoPictureQuestion(questionNumber)
 {
-    polyPictureGrid.style.display = "none";
-    monoPictureGrid.style.display= "grid";
+    //polyPictureGrid.style.display = "none";
+    //monoPictureGrid.style.display= "grid";
 
     //monoPictureGrid = questionData[nummer].bild;
     //console.log(answerGridItem0.firstChild.textContent);
     
-    let image = monoImage.getAttribute("src");
-    image = questionData[nummer].bild;
-    monoImage.src=image;
-    //console.log(monoImage);
+    
+
+   //let image = monoImage.getAttribute("src");
+    //image = questionData[questionNumber].bild;
+    //monoImage.src=image;
+
+    //let questionText = monoQuestionText.lastElementChild;
+    //questionText.innerHTML = `Fråga ${questionNumber+1}:`+questionData[questionNumber].fraga;
+
+    //För att ändra fråga
+    //monoQuestionText.innerHTML = `<p><h1>Fråga ${questionNumber+1}:${questionData[questionNumber].fraga}</h1></p>`;
+    
 
     /**
      * Nu måste jag fixa så att Fråga: [vilken fråga vi är på just nu 1, 2, 3 etc]
+     * Dett kan se ut som: element.innerHTML= $"Antal korrekta svar:{questionData[i].nummer}"
+     * 
      * Event listerners saknas fortfarande!
+     * Antal korrekta frågor saknas!
+     * 
+     * I Poly imagas måste jag kunna ändra frågans text.
      */
-    let lastElement;
-
-    for(let i=0 ; i<monoUserOptions.length; i++)
-    {
-        lastElement=monoUserOptions[i].lastElementChild;
-        lastElement.innerHTML = questionData[nummer].svar[i];
+    //let lastElement;
+  
+    /**
+     * for(let i=0 ; i<monoUserOptions.length; i++){
         
-    }
+        lastElement=monoUserOptions[i].lastElementChild;
+        lastElement.innerHTML = questionData[questionNumber].svar[i];
 
-   
+        monoUserOptions[i].addEventListener("click", () =>  {
+            if(!hasUserAnswered){
+                hasUserAnswered=true
+                CheckIfUSerAnswerIsCorrect(i,questionNumber);
+            }
+        });
+
+        
+
+    };
+     */
+     
     
+/**
+ * for (let i = 0; i < monoUserOptions.length; i++) {
+        setTimeout(() => {
+            const lastElement = monoUserOptions[i].lastElementChild;
+            lastElement.innerHTML = questionData[questionNumber].svar[i];
+
+            monoUserOptions[i].addEventListener("click", () => {
+                if(!hasUserAnswered){
+                    hasUserAnswered=true
+                    CheckIfUSerAnswerIsCorrect(i,questionNumber);
+                }
+               
+            }, { once: true });  
+        }, 0);  
+    }
+ */
+    
+    //console.log("hej"); 
 };
 
 
-function DisplayPolyPictureQuestion(nummer)
+function DisplayPolyPictureQuestion(questionNumber)
 {
-    monoPictureGrid.style.grid = "none";
-    polyPictureGrid.style.display = "grid";
+    //monoPictureGrid.style.grid = "none";
+    //polyPictureGrid.style.display = "grid";
 
     
    
@@ -201,28 +241,29 @@ function TextQuestion()
 
 }
 
-const item0 = document.getElementById("item0");
-//const item1 = document.getElementById("item1").addEventListener("click",CheckIfUSerAnswerIsCorrect(1));
-//const item2 = document.getElementById("item2").addEventListener("click",CheckIfUSerAnswerIsCorrect(2));
-//const item3 = document.getElementById("item3").addEventListener("click",CheckIfUSerAnswerIsCorrect(3));
 
 function UserOptionHandler()
 {
 
 }
 
-function CheckIfUSerAnswerIsCorrect(userNumber,i)
+function CheckIfUSerAnswerIsCorrect(userchoice,questionNumber)
 {
-    if(userNumber== questionData[i].korrekt){
+    /**
+     *      console.log(hej);
+    }
+    else{
+        console.log(hej);
+    }
+     * 
+     * 
+     * 
+     * if(userchoice == questionData[questionNumber].korrekt){
         /**
          * Score ++ och nästa fråga ska visas
          * 
          * En bool i Main() behövs för att avgöra om en fråga är besvarad eller inte.
-         */
-    }
-    else{
-        
-    }
+         */ 
 }
 
 async function init() {
@@ -230,63 +271,152 @@ async function init() {
     
 }
 
+let quizQuestions;
+let currentQuestion=0;
+
 document.addEventListener("DOMContentLoaded", async function () {
+   
     await fetchQuestionData();
-    await init();
-    startButton.addEventListener("click",StartQuiz);
+
+    //await startButton.addEventListener("click",StartQuiz);
+    startButton.addEventListener("click",async () => {
+        startPage.style.display="none";
+        monoPictureGrid.style.display="none";
+        
+        await showQuestion(currentQuestion);
+    });
+
+    answerButtons.forEach((button,i) => {
+        
+        button.addEventListener ("click",(e)=>
+        {
+           
+          
+            console.log(e);
+            //console.log(questionNumber);
+            const rightAnswer = questionData[currentQuestion].korrekt;
+            console.log(rightAnswer);
+            //const correctIndex = questionData[currentQuestion].korrekt;
+            answerButtons.forEach((button,i) => {
+                if(rightAnswer==questionData[currentQuestion].svar)
+                {
+                    button.disabled=true;
+                    button.style.backgroundColor = i === rightAnswer ? "lightgreen" : "lightcoral";
+                    nextButton.style.display = "flex";
+                }
+                
+            });
+          
+        });
+       
+    //console.log(answerButtons);
    
 });
+    
+
+    nextButton.addEventListener("click", ()=>{
+        currentQuestion++;
+        if(currentQuestion <questionData.length) {
+            showQuestion(currentQuestion);
+        } else {
+            monoQuestionText.textContent ="Quiz complete";
+            answerButtons.forEach((button) => button.style.display = "none");
+            nextButton.style.display = "none"
+            restartButton.style.display ="flex";
+        }
+    });
+});
+
+
+
+function showQuestion(index){
+    //quizQuestions = questionData[index];
+  
+    if(questionData[index].typ=="mono-image")
+    {
+        
+        monoPictureGrid.style.display="grid";
+        //monoQuestionText.textContent = $'{questionData[index].fraga}';
+        monoQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}:${questionData[index].fraga}</h1></p>`;
+
+        //const answerButtons = document.querySelectorAll('.grid-item0, .grid-item1, .grid-item2, .grid-item3');
+      
+        
+        
+        answerButtons.forEach((button,i)=> {
+            button.disabled =false;
+            //console.log(`Button ${i} disabled:`, button.disabled); 
+            const flexbox = button.querySelector("#button-content");
+            console.log(flexbox?.textContent);
+            console.log(flexbox);
+            flexbox.textContent = questionData[index].svar[i];
+            
+            console.log(flexbox.textContent);
+            //console.log(flexbox.textContent);
+            //button.disabled=false;
+
+        
+        });
+    }
+    
+    //console.log("Buttons found:", answerButtons.length);
+    nextButton.style.display ="none";
+};
 
 
 function Main()
 {
   //hasQuizStarted=false;
   hasQuizEnded=false;
+    /**
+     * 
+      do{
 
-
-    do{
+        //Fråga Jonas 07/05-2025 
+        //om tips med vart eventlisterners ska ligga
+        //Dilemma: Jag behöver eventlisteners före the nästkommande for-loopen men jag hur ska jag då jämföra värden
+        for(let j=0 ; j<monoUserOptions.length; j++){
         
+           
+    
+            //monoUserOptions[i].addEventListener("click", CheckIfUSerAnswerIsCorrect(i,questionData[i].nummer));
+            monoUserOptions[j].addEventListener("click", () =>  {
+                if(!hasUserAnswered){
+                    hasUserAnswered=true
+                    CheckIfUSerAnswerIsCorrect(j,questionData[i].nummer);
+                }
+            });
+            
+    
+        };
        
-        //console.log(questionData);
+
 
         for( let i=0; i<questionData.length;i++)
             {
-                //console.log(questionData[i].nummer);
-                //console.log(questionData[i].fraga);
+             
+
+                
                 if(questionData[i].typ=="mono-image")
                 {
                     DisplayMonoPictureQuestion(i);
                     /**
                      * Jag måste skapa en metod som hanterar när spelaren klickar på en av alternativen.
                      */
-                }
+                //}
         
-                else if (questionData[i].typ=="poly-image")
-                {
+                //else if (questionData[i].typ=="poly-image")
+                //{
                     ///DisplayPolyPictureQuestion(i);
-                }
+                //}
                 /**
                  * Detta är för den tredje typen av frågor: TextQuestion()
                  * else if()
                 {
-                    
-                }
-                    */
+                      while(hasQuizEnded!=true)
+     * 
+     */
+
         
-        }
-        //Detta måste fixas PRIO !!! sedan kan jag fixa mono och poly picture questions metoderna.
-        
-                
-            
-            
-    
-
-    }
-    while(hasQuizEnded!=true)
-
-    
-    
-    
-    
-
+   
 }
