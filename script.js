@@ -12,10 +12,10 @@
 /**
  * Variables for the choice boxes the user can choose between:
  */
-var answerGridItem0 = document.getElementById("button-content");
-var answerGridItem1 = document.getElementById("button-content");
-var answerGridItem2 = document.getElementById("button-content");
-var answerGridItem3 = document.getElementById("button-content");
+var answerGridItem0 = document.getElementById("item0");
+var answerGridItem1 = document.getElementById("item1");
+var answerGridItem2 = document.getElementById("item2");
+var answerGridItem3 = document.getElementById("item3");
 const answerButtons= [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
 
 /**
@@ -51,6 +51,9 @@ let hasUserAnswered = false;
 
 let monoImage = document.getElementById("mono-image");
 const monoQuestionText = document.getElementById("mono-text");
+
+const totalCorrectAnswers = document.getElementById("correct-answers");
+let correctanswers = 0;
 
 let images ;
 let numbers ;
@@ -283,29 +286,39 @@ document.addEventListener("DOMContentLoaded", async function () {
         startPage.style.display="none";
         monoPictureGrid.style.display="none";
         
-        await showQuestion(currentQuestion);
+        showQuestion(currentQuestion);
     });
 
-    answerButtons.forEach((button,i) => {
+    answerButtons.forEach((button,j) => {
         
         button.addEventListener ("click",(e)=>
         {
            
           
-            console.log(e);
+         
             //console.log(questionNumber);
             const rightAnswer = questionData[currentQuestion].korrekt;
             console.log(rightAnswer);
-            //const correctIndex = questionData[currentQuestion].korrekt;
+
             answerButtons.forEach((button,i) => {
-                if(rightAnswer==questionData[currentQuestion].svar)
+                if(i==rightAnswer)
                 {
                     button.disabled=true;
-                    button.style.backgroundColor = i === rightAnswer ? "lightgreen" : "lightcoral";
+                    button.style.backgroundColor = "green";
+                    //button.style.backgroundColor = i === rightAnswer ? "lightgreen" : "lightcoral";
                     nextButton.style.display = "flex";
+
+                    correctanswers++;
+                    totalCorrectAnswers.innerHTML = correctanswers;
+                    console.log(totalCorrectAnswers.innerHTML = ` <p><h1>Antal korrekta svar: ${correctanswers}</h1></p>`);
+                }
+                else{
+                button.disabled=true;
+                nextButton.style.display = "flex";
                 }
                 
             });
+            
           
         });
        
@@ -323,6 +336,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             answerButtons.forEach((button) => button.style.display = "none");
             nextButton.style.display = "none"
             restartButton.style.display ="flex";
+            
         }
     });
 });
@@ -344,18 +358,9 @@ function showQuestion(index){
         
         
         answerButtons.forEach((button,i)=> {
-            button.disabled =false;
-            //console.log(`Button ${i} disabled:`, button.disabled); 
-            const flexbox = button.querySelector("#button-content");
-            console.log(flexbox?.textContent);
-            console.log(flexbox);
+            button.disabled =false;      
+            const flexbox = button.querySelector(".buttoncontent");    
             flexbox.textContent = questionData[index].svar[i];
-            
-            console.log(flexbox.textContent);
-            //console.log(flexbox.textContent);
-            //button.disabled=false;
-
-        
         });
     }
     
