@@ -152,18 +152,8 @@ h1{
 /*Denna kan jag ta bort*/
 @media only screen and (min-width:1025) and (max-width:2000px ) {
 
-    
-    .start-button{
-        /*
-           width: 15vw;
-        height: 9vh;
-        font-size:large;
-        */
-     
-    }
-    
-
 }
+
 /*Tablet landscape mode*/
 @media only screen and (min-width: 700px) and (max-width:1024px) {
     body{
@@ -171,43 +161,54 @@ h1{
     }
     .start-button{
         width: 50vw;
-        height: 9vh;
+        height: 12vh;
         font-size:large;
         text-align: center;
     }
 
-     .grid-container-mono-picture-type{
+    body .grid-container-mono-picture-type{
         display:none;
         width:100%;
         height: auto;
 
 
         grid-template-columns:1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.5fr 1fr 0.5fr 1fr 1fr ;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 1fr ;
 
         grid-template-areas: 
-        "header header header header"
+        "header0 header1 header2 header3"
         ". image image ."
         "text text text text"
-        "option0 option0 option1 option1 ."
-        ". option2 option2 option3 option3 ."
-       ;
+        ".option0 option1 ."
+        ". option2 option3 .";
 
-        gap:5em;
+        gap:1em;
+        position: relative;
 
     }
 
     .text-flexbox{
-        
+        justify-content: center;
+        align-items: center;   
+    }
+
+    .quest-alternative-flexbox{
+        width: 30vw !important;
+    }
+    img{
+    
     }
     .quest-item{
-        width: 50vw;
-        height: auto;
+        width: auto;
+        height: 22dvh;
+        
     }
 
     .correct-answers{
-
+        grid-area: header1;
         width: 1vw;
+        position: fixed;
+        
     }
 
     .next-button{
@@ -219,18 +220,288 @@ h1{
         width: 3vw;
         height: 3vw;
     }
+
+    body .grid-item0, .grid-item1, .grid-item2, .grid-item3{
+      
+        font-size: large;
+    }
    
 }
 
 /*Tablet portrait mode*/
-@media only screen and (min-width:600px) and (max-width:899px) {
+@media only screen and (min-width:500px) and (max-width:899px) {
+
+   
+    body .grid-container-mono-picture-type{
+    display:none;
+    width:100%;
+    height: auto;
+    
+
+    grid-template-columns:0.5fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.5fr 1fr 0.5fr 1fr 1fr ;
+
+    grid-template-areas: 
+    "header0 header1 header1 header1 "
+    ".  image image ."
+    ". text text ."
+    ". option0 option1 . "
+    ". option2  option3 . ";
+    
+    gap:10px;
+    
+    }
+
+    .start-button{
+        width: 55vw;
+        height: 10vh;
+        font-size: medium;
+    }
+
+    html,body{
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y:auto;
+      
+        margin: 0px;
+        padding: 0px;
+  
+    }
+
+    .quest-item{
+        width: 70vw;
+        height: auto;
+    }
+
+    .correct-answers{
+        grid-area: header1;
+        width: 5vw;
+        position: relative;
+        
+    }
+    h2{
+        font-size: medium;
+    }
+
+    .next-button{
+        width: 15vw;
+        height: 7vh;
+    }
+
+    .next-button-image{
+        width: 3vw;
+        height: 3vw;
+    }
+    
+
+    body .grid-item0, .grid-item1, .grid-item2, .grid-item3{
+        height: 17vh ;
+        font-size: large;
+    }
+    
+   
+}
+/*Situations when the phone is held vertically*/
+@media only screen and (max-width:599px){
+    body .grid-container-mono-picture-type{
+        display:none;
+        width:100%;
+        height: auto;
+        
+
+        grid-template-columns:0.5fr 1fr 1fr 0.5fr;
+        grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr ;
+
+        grid-template-areas: 
+        "header0 header1 header1 header1 "
+        ".  image image ."
+        ". text text ."
+        ". option0 option1 . "
+        ". option2  option3 . ";
+        
+        gap:10px;
+    
+    }
+
+    .text-flexbox{
+        font-size: 0.57em;
+    
+    }
 
     .start-button{
         width: 55vw;
         height: 8vh;
         font-size: medium;
     }
+
+    html,body{
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y:auto;
+      
+        margin: 0px;
+        padding: 0px;
+  
+    }
+
+    .quest-item{
+        width: 70vw;
+        height: auto;
+    }
+
+    .correct-answers{
+        grid-area: header1;
+        width: 5vw;
+        position: absolute;
+        left:14vw;
+        
+        
+    }
+
+    footer .footer-center{
+        font-size: small;
+    }
+    h2{
+        font-size: small;
+    }
+
+    .next-button{
+        position: absolute;
+        bottom:11vh;
+        right: 14vw;
+        width: 34vw;
+        height: 7vh;
+        font-size: 0.6em;
+        font-style:normal;
+    }
+
+    .next-button-image{
+        width: 5vw;
+        height: 5vw;
+    }
     
+
+    body .grid-item0{
+        height: 15vh ;
+    }
+
+    body .grid-item1{
+        height: 15vh ;
+    }
+    body .grid-item2{
+        height: 15vh ;
+    }
+    body .grid-item3{
+        height: 15vh ;
+    }
+
+
+}
+/*Situations when the phone is held horisontally*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    body .grid-container-mono-picture-type{
+        display:none;
+        width:100%;
+        height: auto;
+        
+
+        grid-template-columns:0.5fr 1fr 1fr 0.5fr;
+        grid-template-rows: 0.5fr 1fr 0.1fr 1fr 1fr ;
+
+        grid-template-areas: 
+        "header0 header1 header1 header1 "
+        ".  image image ."
+        ". text text ."
+        ". option0 option1 . "
+        ". option2  option3 . ";
+        
+        gap:10px;
+    
+    }
+    body, html{
+        overflow: hidden !important;
+    }
+
+    .text-flexbox{
+        font-size: 0.45em;
+    
+    }
+
+    .start-button{
+        width: 55vw;
+        height: 15vh;
+        font-size: medium;
+    }
+
+    html,body{
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y:auto;
+      
+        margin: 0px;
+        padding: 0px;
+  
+    }
+
+    .quest-item{
+        width: 70vw;
+        height: auto;
+    }
+
+    .quest-alternative-flexbox{
+        height: 20vh !important;
+        width: 20vw !important;
+    }   
+   
+    .correct-answers{
+        grid-area: header1;
+        width: 5vw;
+        position: absolute;
+        left:14vw;
+        height: 10vh;  
+    }
+
+    footer .footer-center{
+        font-size: small;
+        position: absolute;
+        font-size:0.43em;
+        bottom: 0;
+    }
+    h2{
+        font-size: small;
+    }
+
+    .next-button{
+        position: absolute;
+        bottom:1vh;
+        right: 14vw;
+        width: 14vw;
+        height: 7vh;
+        font-size: 0.5em;
+        
+        gap:0px;
+    }
+
+    .next-button-image{
+        width: 2.5vw;
+        height: 2.5vw;
+    }
+    
+
+    body .grid-item0{
+        height: 15vh ;
+    }
+
+    body .grid-item1{
+        height: 15vh ;
+    }
+    body .grid-item2{
+        height: 15vh ;
+    }
+    body .grid-item3{
+        height: 15vh ;
+    }
+
 }
 
 .footer-center{
