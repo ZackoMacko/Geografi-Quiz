@@ -13,11 +13,18 @@
  * Variables for the choice boxes the user can choose between:
  */
 var answerGridItem0 = document.getElementById("item0");
+answerGridItem0.setAttribute("button-index",0);
 var answerGridItem1 = document.getElementById("item1");
+answerGridItem1.setAttribute("button-index",1);
 var answerGridItem2 = document.getElementById("item2");
+answerGridItem2.setAttribute("button-index",2);
 var answerGridItem3 = document.getElementById("item3");
-const answerButtons= [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
+answerGridItem3.setAttribute("button-index",3);
 
+
+
+const answerButtons= [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
+var chosenButton;
 /**
  * Variables for the images for the poly-image-grid:
  */
@@ -284,52 +291,63 @@ document.addEventListener("DOMContentLoaded", async function () {
     //await startButton.addEventListener("click",StartQuiz);
     startButton.addEventListener("click",async () => {
         startPage.style.display="none";
-        monoPictureGrid.style.display="none";
-        
+        monoPictureGrid.style.display="none";     
         showQuestion(currentQuestion);
     });
 
     answerButtons.forEach((button,j) => {
-        
+       
         button.addEventListener ("click",(e)=>
         {
-           
-          
-         
-            //console.log(questionNumber);
             const rightAnswer = questionData[currentQuestion].korrekt;
-            console.log(rightAnswer);
+            chosenButton = parseInt(button.getAttribute("button-index")) ;
+ 
 
-            answerButtons.forEach((button,i) => {
-                if(i==rightAnswer)
-                {
-                    button.disabled=true;
-                    button.style.backgroundColor = "green";
-                    //button.style.backgroundColor = i === rightAnswer ? "lightgreen" : "lightcoral";
-                    nextButton.style.display = "flex";
+            answerButtons.forEach(button => button.disabled = true);
 
-                    correctanswers++;
-                    totalCorrectAnswers.innerHTML = correctanswers;
-                    console.log(totalCorrectAnswers.innerHTML = ` <p><h1>Antal korrekta svar: ${correctanswers}</h1></p>`);
-                }
-                else{
+            if(chosenButton==rightAnswer)
+            {
+                
+                button.style.backgroundColor = "#2E6E43";
+            
+                nextButton.style.display = "flex";
+
+                correctanswers++;
+                //totalCorrectAnswers.innerHTML = correctanswers;
+                totalCorrectAnswers.innerHTML = `<p><h2>Korrekta svar: ${correctanswers}</h2></p>`;
+                //console.log(totalCorrectAnswers.innerHTML = ` <p><h1>Antal korrekta svar: ${correctanswers}</h1></p>`);
+            }
+            else{
                 button.disabled=true;
                 nextButton.style.display = "flex";
-                }
-                
-            });
+                button.style.backgroundColor = "#D86C70";
+               
+            }
+
             
-          
+            
+            
         });
        
     //console.log(answerButtons);
-   
+    
 });
+
+function ResetButtons(){
+        answerButtons.forEach((button,i) =>{
+            button.disabled=false;
+            button.style.backgroundColor= "";
+            /**
+             * Denna metod återställer inta alla knappar till deras ursprungliga färg.
+             */
+        })
+}
     
 
     nextButton.addEventListener("click", ()=>{
         currentQuestion++;
         if(currentQuestion <questionData.length) {
+            ResetButtons();
             showQuestion(currentQuestion);
         } else {
             monoQuestionText.textContent ="Quiz complete";
@@ -352,6 +370,9 @@ function showQuestion(index){
         monoPictureGrid.style.display="grid";
         //monoQuestionText.textContent = $'{questionData[index].fraga}';
         monoQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}:${questionData[index].fraga}</h1></p>`;
+        monoImage.src = questionData[index].bild;
+        //console.log(monoImage);
+        /**Lägg till så att bilden ändras här!!!! */
 
         //const answerButtons = document.querySelectorAll('.grid-item0, .grid-item1, .grid-item2, .grid-item3');
       
