@@ -187,10 +187,10 @@
         "typ":"poly-image",
         "fraga": "Vilken flagga tillhör Irak?",
         "svar": [
-            "Bild 1",
-            "Bild 2",
-            "Bild 3",
-            "Bild 4"
+            "A",
+            "B",
+            "C",
+            "D"
         ],
         "korrekt": 2
     },

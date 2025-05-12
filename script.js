@@ -42,9 +42,13 @@ const polyPictures = [polyPicture0,polyPicture1,polyPicture2,polyPicture3];
  */
 
 var polyitem0 = document.getElementById("polyitem0");
+polyitem0.setAttribute("button-index",0);
 var polyitem1 = document.getElementById("polyitem1");
+polyitem1.setAttribute("button-index",1);
 var polyitem2 = document.getElementById("polyitem2");
+polyitem2.setAttribute("button-index",2);
 var polyitem3 = document.getElementById("polyitem3");
+polyitem3.setAttribute("button-index",3);
 
 const polyAnswerButtons = [polyitem0,polyitem1,polyitem2,polyitem3];
 /**
@@ -153,7 +157,7 @@ function StartQuiz()
 
 let quizQuestions;
 //Ändra till 0 efter du har testat
-let currentQuestion=15;
+let currentQuestion=13;
 
 document.addEventListener("DOMContentLoaded", async function () {
    
@@ -171,6 +175,8 @@ document.addEventListener("DOMContentLoaded", async function () {
        
         button.addEventListener ("click",(e)=>
         {
+      
+           
             const rightAnswer = questionData[currentQuestion].korrekt;
             chosenButton = parseInt(button.getAttribute("button-index")) ;
  
@@ -203,17 +209,58 @@ document.addEventListener("DOMContentLoaded", async function () {
        
     //console.log(answerButtons);
     
-});
+    });
 
-function ResetButtons(){
-        answerButtons.forEach((button,i) =>{
-            button.disabled=false;
-            button.style.backgroundColor= "";
-            /**
-             * Denna metod återställer inta alla knappar till deras ursprungliga färg.
-             */
-        })
-}
+    polyAnswerButtons.forEach((button,j) => {
+       
+        button.addEventListener ("click",(e)=>
+        {
+      
+           
+            const rightAnswer = questionData[currentQuestion].korrekt;
+            console.log(rightAnswer);
+            chosenButton = parseInt(button.getAttribute("button-index")) ;
+            console.log(chosenButton);
+
+            polyAnswerButtons.forEach(button => button.disabled = true);
+
+            if(chosenButton==rightAnswer)
+            {
+                
+                button.style.backgroundColor = "#2E6E43";
+            
+                nextButton.style.display = "flex";
+
+                correctanswers++;
+                //totalCorrectAnswers.innerHTML = correctanswers;
+                totalCorrectAnswers.innerHTML = `<p><h2>Korrekta svar: ${correctanswers}</h2></p>`;
+                //console.log(totalCorrectAnswers.innerHTML = ` <p><h1>Antal korrekta svar: ${correctanswers}</h1></p>`);
+            }
+            else{
+                button.disabled=true;
+                nextButton.style.display = "flex";
+                button.style.backgroundColor = "#D86C70";
+               
+            }
+
+            
+            
+            
+        });
+       
+    
+    
+    });
+
+    function ResetButtons(){
+            answerButtons.forEach((button,i) =>{
+                button.disabled=false;
+                button.style.backgroundColor= "";
+                /**
+                 * Denna metod återställer inta alla knappar till deras ursprungliga färg.
+                 */
+            })
+    }
     
 
     nextButton.addEventListener("click", ()=>{
@@ -258,7 +305,8 @@ function showQuestion(index){
 
         });
     }
-    console.log(currentQuestion);
+
+    //console.log(currentQuestion);
     if(questionData[index].typ=="poly-image"){
         polyPictureGrid.style.display ="grid";
         monoPictureGrid.style.display = "none";
