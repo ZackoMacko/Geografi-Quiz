@@ -28,13 +28,25 @@ var chosenButton;
 /**
  * Variables for the images for the poly-image-grid:
  */
-//var polyPicture0 = document.getElementById("poly-image-0");
-//var polyPicture1 = document.getElementById("poly-image-1");
-//var polyPicture2 = document.getElementById("poly-image-2");
-//var polyPicture3 = document.getElementById("poly-image-3");
 
-//let polyPictures = [polyPicture0,polyPicture1,polyPicture2,polyPicture3];
 
+var polyPicture0 = document.getElementById("poly-image-0");
+var polyPicture1 = document.getElementById("poly-image-1");
+var polyPicture2 = document.getElementById("poly-image-2");
+var polyPicture3 = document.getElementById("poly-image-3");
+
+const polyPictures = [polyPicture0,polyPicture1,polyPicture2,polyPicture3];
+
+/**
+ * Variables for the answers in the poly-image-grid
+ */
+
+var polyitem0 = document.getElementById("polyitem0");
+var polyitem1 = document.getElementById("polyitem1");
+var polyitem2 = document.getElementById("polyitem2");
+var polyitem3 = document.getElementById("polyitem3");
+
+const polyAnswerButtons = [polyitem0,polyitem1,polyitem2,polyitem3];
 /**
  * Variable for the start-page-grid:
  */
@@ -44,7 +56,7 @@ var chosenButton;
 var restartButton = document.getElementById("restartbutton");
  */
 
-//let polyPictureGrid = document.getElementById("poly-picture-grid");
+let polyPictureGrid = document.getElementById("poly-picture-grid");
 let monoPictureGrid = document.getElementById("mono-picture");
 const startButton = document.getElementById("startbutton");
 const startPage= document.getElementById("start-page");
@@ -58,6 +70,8 @@ let hasUserAnswered = false;
 
 let monoImage = document.getElementById("mono-image");
 const monoQuestionText = document.getElementById("mono-text");
+
+const polyQuestionText = document.getElementById("poly-question-text");
 
 const totalCorrectAnswers = document.getElementById("correct-answers");
 let correctanswers = 0;
@@ -124,11 +138,6 @@ function fetchQuestionData() {
     .catch(error => console.error('Failed to fetch data:', error)); 
 };
 
-function UserOptions() {
-    /*
-    *userOptions = [answerGridItem0,answerGridItem1,answerGridItem2,answerGridItem3];
-    */
-};
 
 
 function StartQuiz()
@@ -142,70 +151,9 @@ function StartQuiz()
 
 
 
-function DisplayStartPage()
-{
-    startPage.style.display = "flex";
-    polyPictureGrid.style.display = "none";
-    monoPictureGrid.style.display= "none";
-}
-
-
-function SetAlternativsForUser(index)
-{
-   
-}
-
-
-
-function DisplayPolyPictureQuestion(questionNumber)
-{
-    //monoPictureGrid.style.grid = "none";
-    //polyPictureGrid.style.display = "grid";
-
-    
-   
-}
-
-/**
- * Denna är inte implmenterad i HTML eller CSS
- */
-function TextQuestion()
-{
-
-}
-
-
-function UserOptionHandler()
-{
-
-}
-
-function CheckIfUSerAnswerIsCorrect(userchoice,questionNumber)
-{
-    /**
-     *      console.log(hej);
-    }
-    else{
-        console.log(hej);
-    }
-     * 
-     * 
-     * 
-     * if(userchoice == questionData[questionNumber].korrekt){
-        /**
-         * Score ++ och nästa fråga ska visas
-         * 
-         * En bool i Main() behövs för att avgöra om en fråga är besvarad eller inte.
-         */ 
-}
-
-async function init() {
-    await fetchQuestionData();
-    
-}
-
 let quizQuestions;
-let currentQuestion=0;
+//Ändra till 0 efter du har testat
+let currentQuestion=15;
 
 document.addEventListener("DOMContentLoaded", async function () {
    
@@ -307,13 +255,31 @@ function showQuestion(index){
             const flexbox = button.querySelector(".buttoncontent");    
             flexbox.textContent = questionData[index].svar[i];
 
-            
+
         });
     }
-
+    console.log(currentQuestion);
     if(questionData[index].typ=="poly-image"){
         polyPictureGrid.style.display ="grid";
+        monoPictureGrid.style.display = "none";
+        //För bilderna
+        polyQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}: ${questionData[index].fraga}</h1></p>`;
 
+        polyPictures.forEach((image,j)=>{
+            image.src = questionData[index].bilder[j];
+            image.alt = "none";
+          
+
+        });
+        //console.log(polyAnswerButtons);
+        //Alternativen för användaren
+        polyAnswerButtons.forEach((button,i)=> {
+            button.disabled =false;      
+            const flexbox = button.querySelector(".button-content1");    
+            flexbox.textContent = questionData[index].svar[i];
+
+
+        });
     }
     
     //console.log("Buttons found:", answerButtons.length);
@@ -321,59 +287,3 @@ function showQuestion(index){
 };
 
 
-function Main()
-{
-  //hasQuizStarted=false;
-  hasQuizEnded=false;
-    /**
-     * 
-      do{
-
-        //Fråga Jonas 07/05-2025 
-        //om tips med vart eventlisterners ska ligga
-        //Dilemma: Jag behöver eventlisteners före the nästkommande for-loopen men jag hur ska jag då jämföra värden
-        for(let j=0 ; j<monoUserOptions.length; j++){
-        
-           
-    
-            //monoUserOptions[i].addEventListener("click", CheckIfUSerAnswerIsCorrect(i,questionData[i].nummer));
-            monoUserOptions[j].addEventListener("click", () =>  {
-                if(!hasUserAnswered){
-                    hasUserAnswered=true
-                    CheckIfUSerAnswerIsCorrect(j,questionData[i].nummer);
-                }
-            });
-            
-    
-        };
-       
-
-
-        for( let i=0; i<questionData.length;i++)
-            {
-             
-
-                
-                if(questionData[i].typ=="mono-image")
-                {
-                    DisplayMonoPictureQuestion(i);
-                    /**
-                     * Jag måste skapa en metod som hanterar när spelaren klickar på en av alternativen.
-                     */
-                //}
-        
-                //else if (questionData[i].typ=="poly-image")
-                //{
-                    ///DisplayPolyPictureQuestion(i);
-                //}
-                /**
-                 * Detta är för den tredje typen av frågor: TextQuestion()
-                 * else if()
-                {
-                      while(hasQuizEnded!=true)
-     * 
-     */
-
-        
-   
-}

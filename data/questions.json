@@ -218,10 +218,10 @@
         "typ":"poly-image",
         "fraga": "Vilken av flaggorna tillhör Guinea?",
         "svar": [
-            "Bild 1",
-            "Bild 2",
-            "Bild 3",
-            "Bild 4"
+            "A",
+            "B",
+            "C",
+            "D"
         ],
         "korrekt": 0
     },

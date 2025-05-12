@@ -22,9 +22,6 @@ h1{
 
 .text{
     grid-area:text0;
-}
-.flexbox-body-text{
-   
     display: flex;
     
     flex-direction: row;
@@ -32,20 +29,10 @@ h1{
     justify-content: center;
     
     border-bottom-style: dotted;
-    
-   
+    height: 7vh;
+    width: 80vw;
 }
 
-.question{
-    text-align: center;
-}
-
-.number{
-    text-align: center;
-}
-.question-text{
-    text-align: center;
-}
 /*buttons*/
 .next-button{
     /*
@@ -541,7 +528,7 @@ h1{
 * poly picture grid
 */
 .grid-container-poly-picture-type{
-    display:grid;
+    display:none;
     width:100%;
     height: auto;
     
@@ -704,23 +691,32 @@ h1{
     border-style: none;
     align-self:end;
     align-content:flex-end;
- 
-}
-
-.quest-alternative-flexbox0{
+     
     display: flex;
     flex-direction: column;
     margin: 0px;
+    justify-content: center;
+    align-items: center;
+ 
 }
-.Letter0{
-    text-align: center;
-    margin-right: 28%;
+
+.button-content1{
+    text-align: left;
+    font-size: x-large;
 }
+
+
 
 .quest-item1{
     grid-area: image1;
     border-style: none;
     align-content: flex-end; 
+
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
 }
 
 .quest-alternative-flexbox1{
@@ -728,10 +724,7 @@ h1{
     flex-direction: column;
     margin: 0px;
 }
-.Letter1{
-    text-align: center;
-    margin-right: 28%;
-}
+
 
 
 
@@ -739,36 +732,26 @@ h1{
     grid-area: image2;
     border-style: none;
     align-content: flex-end;
-}
 
-.quest-alternative-flexbox2{
     display: flex;
     flex-direction: column;
     margin: 0px;
+    justify-content: center;
+    align-items: center;
 }
-.Letter2{
-    text-align: center;
-    margin-right: 28%;
-}
+
 
 .quest-item3{
     grid-area: image3;
     border-style: none;
     align-content: flex-end;
-}
-.quest-alternative-flexbox3{
+
     display: flex;
     flex-direction: column;
     margin: 0px;
+    justify-content: center;
+    align-items: center;
 }
-.Letter3{
-    text-align: center;
-    margin-right: 28%;
-}
-
-
-
-
 
 /*
 * mono picture grid type
