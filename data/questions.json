@@ -70,93 +70,93 @@
     ,
 
     {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
+        "bild": "none",
+        "nummer":"6",
+        "typ":"mono-text",
+        "fraga": "Vilket land har denna stad: Umluj?",
+        "svar": [
+            "Förenade Arabemiraten",
+            "Afghanistan",
+            "Saudiarabien",
+            "Turkmenistan"
+        ],
+        "korrekt": 2
+    },
+    {
+        "bild": "images/chad.png",
+        "nummer":"7",
+        "typ":"mono-image",
         "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Moldavien",
+            "Andorra",
+            "Rumänien",
+            "Tchad"
+        ],
+        "korrekt": 3
+    },
+    {
+        "bild": "images/indonesien.png",
+        "nummer":"8",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
+        "svar": [
+            "Polen",
+            "Indonesien",
+            "Monaco",
+            "Singapore"
+        ],
+        "korrekt": 1
+    },
+    {
+        "bild": "none",
+        "nummer":"9",
+        "typ":"mono-text",
+        "fraga": "Vilket land har en stad som heter Yilan?",
+        "svar": [
+            "Taiwan",
+            "Kina",
+            "Vietnam",
+            "Sydkorea"
         ],
         "korrekt": 0
     },
     {
-        "bild": "",
-        "nummer":"tre",
+        "bild": "none",
+        "nummer":"10",
         "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "fraga": "Vad är huvudstaden i Myanmar (Burma)?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Mandalay",
+            "Pyay",
+            "Bago",
+            "Naypyidaw"
         ],
-        "korrekt": 0
+        "korrekt": 3
     },
     {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "bild": "images/elfenbenskusten.png",
+        "nummer":"11",
+        "typ":"mono-image",
+        "fraga": "Vilket land har denna flagga?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Indien",
+            "Niger",
+            "Elfenbenskusten",
+            "Irland"
         ],
-        "korrekt": 0
+        "korrekt": 2
     },
     {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "bild": "images/rumanien.png",
+        "nummer":"12",
+        "typ":"mono-image",
+        "fraga": "Vilket land tillhör denna flaggan?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Rumänien ",
+            "Moldavien",
+            "Andorra",
+            "Tchad"
         ],
         "korrekt": 0
     }
@@ -164,49 +164,85 @@
     ,
 
     {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "bild": "images/saint-pierre-och-miquelons-flagga.png",
+        "nummer":"13",
+        "typ":"mono-image",
+        "fraga": "I vilken världsdel ligger landet som har följande flagga?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Sydamerika",
+            "Nordamerika",
+            "Oceanien",
+            "Asien"
+        ],
+        "korrekt": 1  
+    },
+    {
+        "bilder":[
+            "images/egypten.png",
+            "images/jemen.png",
+            "images/irak.png",
+            "images/syrien.png"
+        ],
+        "nummer":"14",
+        "typ":"poly-image",
+        "fraga": "Vilken flagga tillhör Irak?",
+        "svar": [
+            "Bild 1",
+            "Bild 2",
+            "Bild 3",
+            "Bild 4"
+        ],
+        "korrekt": 2
+    },
+    {
+        "bild": "none",
+        "nummer":"15",
+        "typ":"mono-text",
+        "fraga": "Vilket av följande städer finns inte i Japan?",
+        "svar": [
+            "Kochi",
+            "Kobe",
+            "Kyoto",
+            "Kochi"
+        ],
+        "korrekt": 3
+    },
+    {
+        "bilder":[
+            "images/guinea.png",
+            "images/mali.png",
+            "images/kamerun.png",
+            "images/senegal.png"
+        ],
+        "nummer":"16",
+        "typ":"poly-image",
+        "fraga": "Vilken av flaggorna tillhör Guinea?",
+        "svar": [
+            "Bild 1",
+            "Bild 2",
+            "Bild 3",
+            "Bild 4"
         ],
         "korrekt": 0
     },
     {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "bild": "none",
+        "nummer":"17",
+        "typ":"mono-text",
+        "fraga": "Vilken öagrupp finns inte i Sydamerika?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Falklandsöarna",
+            "Kanarieöarna ",
+            "Sydgeorgien och Sydsandwichöarna",
+            "Norrfolköarna, Malé"
         ],
-        "korrekt": 0
+        "korrekt": 1
     },
     {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "bild": "none",
+        "nummer":"18",
+        "typ":"mono-text",
+        "fraga": " Vilket hav ligger inte i den norra världshalvan?",
         "svar": [
             "1492",
             "1521",

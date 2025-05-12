@@ -50,7 +50,7 @@ const startButton = document.getElementById("startbutton");
 const startPage= document.getElementById("start-page");
 const restartButton = document.getElementById("restartbutton");
 const nextButton = document.getElementById("nextbutton");
-
+const highscore = document.getElementById("highscore");
 //restartButton.addEventListener("click",ResetQuiz);
 let hasQuizStarted;
 let hasQuizEnded= false;
@@ -139,14 +139,7 @@ function StartQuiz()
 }
 
 
-/**
- * function ResetQuiz()
-{
-    startPage.style.display = "none";
-    polyPictureGrid.style.display = "none";
-    monoPictureGrid.style.display= "none";
-}
- */
+
 
 
 function DisplayStartPage()
@@ -162,76 +155,6 @@ function SetAlternativsForUser(index)
    
 }
 
-function DisplayMonoPictureQuestion(questionNumber)
-{
-    //polyPictureGrid.style.display = "none";
-    //monoPictureGrid.style.display= "grid";
-
-    //monoPictureGrid = questionData[nummer].bild;
-    //console.log(answerGridItem0.firstChild.textContent);
-    
-    
-
-   //let image = monoImage.getAttribute("src");
-    //image = questionData[questionNumber].bild;
-    //monoImage.src=image;
-
-    //let questionText = monoQuestionText.lastElementChild;
-    //questionText.innerHTML = `Fråga ${questionNumber+1}:`+questionData[questionNumber].fraga;
-
-    //För att ändra fråga
-    //monoQuestionText.innerHTML = `<p><h1>Fråga ${questionNumber+1}:${questionData[questionNumber].fraga}</h1></p>`;
-    
-
-    /**
-     * Nu måste jag fixa så att Fråga: [vilken fråga vi är på just nu 1, 2, 3 etc]
-     * Dett kan se ut som: element.innerHTML= $"Antal korrekta svar:{questionData[i].nummer}"
-     * 
-     * Event listerners saknas fortfarande!
-     * Antal korrekta frågor saknas!
-     * 
-     * I Poly imagas måste jag kunna ändra frågans text.
-     */
-    //let lastElement;
-  
-    /**
-     * for(let i=0 ; i<monoUserOptions.length; i++){
-        
-        lastElement=monoUserOptions[i].lastElementChild;
-        lastElement.innerHTML = questionData[questionNumber].svar[i];
-
-        monoUserOptions[i].addEventListener("click", () =>  {
-            if(!hasUserAnswered){
-                hasUserAnswered=true
-                CheckIfUSerAnswerIsCorrect(i,questionNumber);
-            }
-        });
-
-        
-
-    };
-     */
-     
-    
-/**
- * for (let i = 0; i < monoUserOptions.length; i++) {
-        setTimeout(() => {
-            const lastElement = monoUserOptions[i].lastElementChild;
-            lastElement.innerHTML = questionData[questionNumber].svar[i];
-
-            monoUserOptions[i].addEventListener("click", () => {
-                if(!hasUserAnswered){
-                    hasUserAnswered=true
-                    CheckIfUSerAnswerIsCorrect(i,questionNumber);
-                }
-               
-            }, { once: true });  
-        }, 0);  
-    }
- */
-    
-    //console.log("hej"); 
-};
 
 
 function DisplayPolyPictureQuestion(questionNumber)
@@ -291,7 +214,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     //await startButton.addEventListener("click",StartQuiz);
     startButton.addEventListener("click",async () => {
         startPage.style.display="none";
-        monoPictureGrid.style.display="none";     
+        monoPictureGrid.style.display="none";   
+        highscore.style.display="none";  
         showQuestion(currentQuestion);
     });
 
@@ -382,7 +306,14 @@ function showQuestion(index){
             button.disabled =false;      
             const flexbox = button.querySelector(".buttoncontent");    
             flexbox.textContent = questionData[index].svar[i];
+
+            
         });
+    }
+
+    if(questionData[index].typ=="poly-image"){
+        polyPictureGrid.style.display ="grid";
+
     }
     
     //console.log("Buttons found:", answerButtons.length);

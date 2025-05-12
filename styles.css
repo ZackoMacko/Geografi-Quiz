@@ -46,7 +46,7 @@ h1{
 .question-text{
     text-align: center;
 }
-
+/*buttons*/
 .next-button{
     /*
     grid-area:header2;
@@ -94,6 +94,48 @@ h1{
     
 }
 
+.restart-button{
+    width: 12vw;
+    height: 7vh;
+    color: black;
+    background-color: #CA3203;
+    border-style: none;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.restart-button:hover{
+    background-color: #b62d03;   
+}
+
+.restart-button:active{
+     background-color: #a22802;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.to-start-page-button{
+    width: 12vw;
+    height: 7vh;
+    color: black;
+    background-color: #CA3203;
+    border-style: none;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+.to-start-page-button:hover{
+    background-color: #b62d03;  
+}
+
+.to-start-page-button:active{
+    background-color: #a22802;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+/*Buttons end*/
+
 .header-flexbox{
     display: flex;
     justify-content: left;
@@ -108,25 +150,6 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.restart-button{
-    grid-area:header1;
-    
-    width: 12vw;
-    height: 5vh;
-    color: black;
-    background-color: white;
-    border-style: solid;  
-}
-
-.to-start-page-button{
-    grid-area:header0;
-    
-    width: 12vw;
-    height: 5vh;
-    color: black;
-    background-color: white;
-    border-style: solid;  
 }
 
 .start-button{
@@ -518,7 +541,7 @@ h1{
 * poly picture grid
 */
 .grid-container-poly-picture-type{
-    display:none;
+    display:grid;
     width:100%;
     height: auto;
     
@@ -551,7 +574,7 @@ h1{
    
 
     
-    background-color:  #FDE0D9;
+    background-color: #fde0d9;
 
     text-align: center;
     width: 35vw;
@@ -560,6 +583,7 @@ h1{
     align-self:end;
     margin-left:auto;
 }
+
 .grid-item0:hover{
     background-color: #e4cac3;   
     border-style: solid;
