@@ -2,7 +2,12 @@
 body{
     overflow: hidden;
     background-color: #FCFFE9;
-  
+    position: relative;
+}
+
+main{
+    position: relative;
+    height: 100vh;
 }
 /*
 .header{
@@ -81,44 +86,7 @@ h1{
     
 }
 
-.restart-button{
-    width: 12vw;
-    height: 7vh;
-    color: black;
-    background-color: #CA3203;
-    border-style: none;
-    transition-duration: 0.4s;
-    border-radius: 5px;
-}
 
-.restart-button:hover{
-    background-color: #b62d03;   
-}
-
-.restart-button:active{
-     background-color: #a22802;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-.to-start-page-button{
-    width: 12vw;
-    height: 7vh;
-    color: black;
-    background-color: #CA3203;
-    border-style: none;
-    transition-duration: 0.4s;
-    border-radius: 5px;
-}
-.to-start-page-button:hover{
-    background-color: #b62d03;  
-}
-
-.to-start-page-button:active{
-    background-color: #a22802;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
 
 
 /*Buttons end*/
@@ -128,7 +96,7 @@ h1{
     justify-content: left;
     flex-direction: row;
     column-gap:1%;
-
+    height: 10vh;
     padding-left: 1%;
 }
 
@@ -140,6 +108,9 @@ h1{
 }
 
 .start-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 12vw;
     height: 7vh;
     color: black;
@@ -205,9 +176,7 @@ h1{
     .quest-alternative-flexbox{
         width: 30vw !important;
     }
-    img{
     
-    }
     .quest-item{
         width: auto;
         height: 22dvh;
@@ -819,24 +788,102 @@ h1{
 }
 
 
+/*Mono-text-grid*/
 
-/*
-.Option-grid{
+.mono-text-grid{
+    display:none;
+    width:100%;
+    height: auto;
     
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 10vw 10vw;
-    display: grid;
-    background-color:none;
+
+    grid-template-columns:1fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-rows: 5vh 25vh 15vh 20vh 20vh ;
+
+    grid-template-areas: 
+    "header0 header1 header2 header3 header4 header6"
+    ". . . . . ."
+    ". text text text text ."
+    ". option0 option0 option1 option1 ."
+    ". option2 option2 option3 option3 .";
+    
+    gap:10px;
 }
 
-.option-item0{
-    grid-area: option;
-    background-color: orange;
+.button-content-mono-text{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: left;
+    column-gap: 1%;
+}
+/*Mono-text-grid*/
+
+
+/*End-screen*/
+.end-screen{
+    display: none;
+    flex-direction: column;
+    column-gap: 1em;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1em;
+      left: 50%;
+    bottom: 30%;
+    transform: translate(-50%, -50%);
+
+
 }
 
-.option-item1{
-
-    background-color: orange;
+.restart-button{
+    width: 12vw;
+    height: 7vh;
+    color: black;
+    background-color: #CA3203;
+    border-style: none;
+    transition-duration: 0.4s;
+    border-radius: 5px;
 }
 
-*/
+.restart-button:hover{
+    background-color: #b62d03;   
+}
+
+.restart-button:active{
+     background-color: #a22802;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.to-start-page-button{
+    width: 12vw;
+    height: 7vh;
+    color: black;
+    background-color: #CA3203;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+.to-start-page-button:hover{
+    background-color: #b62d03;  
+}
+
+.to-start-page-button:active{
+    background-color: #a22802;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.end-screen-textbox{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    bottom: 100%;
+    width: 20vw;
+   
+
+}
+/*End-screen*/

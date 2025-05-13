@@ -86,7 +86,7 @@
         "bild": "images/chad.png",
         "nummer":"7",
         "typ":"mono-image",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
+        "fraga": "Vilket land har denna flagga?",
         "svar": [
             "Moldavien",
             "Andorra",
@@ -124,7 +124,7 @@
     {
         "bild": "none",
         "nummer":"10",
-        "typ":"",
+        "typ":"mono-text",
         "fraga": "Vad är huvudstaden i Myanmar (Burma)?",
         "svar": [
             "Mandalay",
@@ -244,51 +244,11 @@
         "typ":"mono-text",
         "fraga": " Vilket hav ligger inte i den norra världshalvan?",
         "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
-        ],
-        "korrekt": 0
-    },
-    {
-        "bild": "",
-        "nummer":"tre",
-        "typ":"",
-        "fraga": "Vilket år upptäckte Christofer Columbus Amerika?",
-        "svar": [
-            "1492",
-            "1521",
-            "1607",
-            "1776"
+            "Berings hav",
+            "Ochotska havet",
+            "Tasmanhavet",
+            "Korallhavet "
         ],
         "korrekt": 0
     }
-
 ]

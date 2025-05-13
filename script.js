@@ -51,22 +51,40 @@ var polyitem3 = document.getElementById("polyitem3");
 polyitem3.setAttribute("button-index",3);
 
 const polyAnswerButtons = [polyitem0,polyitem1,polyitem2,polyitem3];
+
+/**
+ * Variables for the mono-text-grid
+ */
+var monoTextGrid = document.getElementById("mono-text-grid");
+
+var monoTextButtonContent0 = document.getElementById("mono-text-item0");
+monoTextButtonContent0.setAttribute("button-index",0);
+var monoTextButtonContent1 = document.getElementById("mono-text-item1");
+monoTextButtonContent1.setAttribute("button-index",1);
+var monoTextButtonContent2 = document.getElementById("mono-text-item2");
+monoTextButtonContent2.setAttribute("button-index",2);
+var monoTextButtonContent3 = document.getElementById("mono-text-item3");
+monoTextButtonContent3.setAttribute("button-index",3)
+
+const monoTextAnswerButtons = [monoTextButtonContent0,monoTextButtonContent1,monoTextButtonContent2,monoTextButtonContent3];
+
+const monoGridQuestionText = document.getElementById("mono-textbox");
 /**
  * Variable for the start-page-grid:
  */
 
-/**
- * var startButton= document.getElementById("startbutton");
-var restartButton = document.getElementById("restartbutton");
- */
+
+const endScreenTextbox= document.getElementById("end-screen-textbox");
 
 let polyPictureGrid = document.getElementById("poly-picture-grid");
 let monoPictureGrid = document.getElementById("mono-picture");
 const startButton = document.getElementById("startbutton");
-const startPage= document.getElementById("start-page");
+const startpage= document.getElementById("start-page");
+const ToStartPageButton = document.getElementById("to-start-page-button")
 const restartButton = document.getElementById("restartbutton");
+
 const nextButton = document.getElementById("nextbutton");
-const highscore = document.getElementById("highscore");
+const highScoreElement = document.getElementById("high-score");
 //restartButton.addEventListener("click",ResetQuiz);
 let hasQuizStarted;
 let hasQuizEnded= false;
@@ -89,14 +107,17 @@ let answers ;
 let answersAmount;
 var correctanswer;
 
-
-
-//const flexbox0 = document.getElementById("alternativetextbox0");
-//const flexbox1 = document.getElementById("alternativetextbox1");
-//const flexbox2 = document.getElementById("alternativetextbox2");
-//const flexbox3 = document.getElementById("alternativetextbox3");
-//let answerButtons= [flexbox0,flexbox1,flexbox2,flexbox3];
 let questionData;
+
+/**
+ * End-screen
+ */
+
+const endscreen = document.getElementById("end-screen");
+
+/**
+ * End-screen
+ */
 
 
 
@@ -111,7 +132,7 @@ function fetchQuestionData() {
     }) 
     .then((data) => {
     questionData = data;   
-    
+    localStorage.setItem("quiz-data",questionData);
     
     //Såhär komplar man en array till en JSON-fil där man efterkräver ett en viss data.
     //const images = questionData.map(item => item.bild).flat();
@@ -120,8 +141,7 @@ function fetchQuestionData() {
     //const quizQuestions = questionData.map(item => item.fraga)
 
    
-    //console.log(images);
-
+  
     //anwsersAmount = quizNumber.length;
 
     //localStorage.setItem("quiz-images",JSON.stringify(images));
@@ -133,8 +153,7 @@ function fetchQuestionData() {
      * Detta är för individuella egenskaper från Json-filen
      * const firstImagePath = questionData[0].bild;
     const test = questionData[0].nummer;
-    console.log(test);
-    console.log("First image path:", firstImagePath);
+  
      */   
     return data
     })
@@ -144,12 +163,7 @@ function fetchQuestionData() {
 
 
 
-function StartQuiz()
-{
-   startPage.style.display = "none" 
-   hasQuizStarted=true;
-   Main();
-}
+
 
 
 
@@ -157,17 +171,22 @@ function StartQuiz()
 
 let quizQuestions;
 //Ändra till 0 efter du har testat
-let currentQuestion=13;
+let currentQuestion=17;
 
 document.addEventListener("DOMContentLoaded", async function () {
    
     await fetchQuestionData();
 
-    //await startButton.addEventListener("click",StartQuiz);
+   
     startButton.addEventListener("click",async () => {
-        startPage.style.display="none";
-        monoPictureGrid.style.display="none";   
-        highscore.style.display="none";  
+ 
+        polyPictureGrid.style.display ="none";
+        startpage.style.display="none";
+        monoPictureGrid.style.display="none"; 
+        monoTextGrid.style.display = "none";  
+        highScoreElement.style.display="none";
+        //endscreen.style.display="none";
+
         showQuestion(currentQuestion);
     });
 
@@ -191,9 +210,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                 nextButton.style.display = "flex";
 
                 correctanswers++;
-                //totalCorrectAnswers.innerHTML = correctanswers;
                 totalCorrectAnswers.innerHTML = `<p><h2>Korrekta svar: ${correctanswers}</h2></p>`;
-                //console.log(totalCorrectAnswers.innerHTML = ` <p><h1>Antal korrekta svar: ${correctanswers}</h1></p>`);
+             
             }
             else{
                 button.disabled=true;
@@ -207,7 +225,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             
         });
        
-    //console.log(answerButtons);
+
     
     });
 
@@ -218,9 +236,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       
            
             const rightAnswer = questionData[currentQuestion].korrekt;
-            console.log(rightAnswer);
+       
             chosenButton = parseInt(button.getAttribute("button-index")) ;
-            console.log(chosenButton);
+         
 
             polyAnswerButtons.forEach(button => button.disabled = true);
 
@@ -232,9 +250,50 @@ document.addEventListener("DOMContentLoaded", async function () {
                 nextButton.style.display = "flex";
 
                 correctanswers++;
-                //totalCorrectAnswers.innerHTML = correctanswers;
+       
                 totalCorrectAnswers.innerHTML = `<p><h2>Korrekta svar: ${correctanswers}</h2></p>`;
-                //console.log(totalCorrectAnswers.innerHTML = ` <p><h1>Antal korrekta svar: ${correctanswers}</h1></p>`);
+            
+            }
+            else{
+                button.disabled=true;
+                nextButton.style.display = "flex";
+                button.style.backgroundColor = "#D86C70";
+               
+            }
+
+            
+            
+            
+        });
+       
+    
+    
+    });
+
+    monoTextAnswerButtons.forEach((button,j) => {
+       
+        button.addEventListener ("click",(e)=>
+        {
+      
+           
+            const rightAnswer = questionData[currentQuestion].korrekt;
+      
+            chosenButton = parseInt(button.getAttribute("button-index")) ;
+         
+
+            monoTextAnswerButtons.forEach(button => button.disabled = true);
+
+            if(chosenButton==rightAnswer)
+            {
+                
+                button.style.backgroundColor = "#2E6E43";
+            
+                nextButton.style.display = "flex";
+
+                correctanswers++;
+          
+                totalCorrectAnswers.innerHTML = `<p><h2>Korrekta svar: ${correctanswers}</h2></p>`;
+               
             }
             else{
                 button.disabled=true;
@@ -253,13 +312,27 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     function ResetButtons(){
-            answerButtons.forEach((button,i) =>{
-                button.disabled=false;
-                button.style.backgroundColor= "";
-                /**
-                 * Denna metod återställer inta alla knappar till deras ursprungliga färg.
-                 */
-            })
+        answerButtons.forEach((button,i) =>{
+            button.disabled=false;
+            button.style.backgroundColor= "";
+            /**
+             * Denna metod återställer inta alla knappar till deras ursprungliga färg.
+             */
+        })
+        polyAnswerButtons.forEach((button,i) =>{
+            button.disabled=false;
+            button.style.backgroundColor= "";
+            /**
+             * Denna metod återställer inta alla knappar till deras ursprungliga färg.
+             */
+        })
+        monoTextAnswerButtons.forEach((button,i) =>{
+            button.disabled=false;
+            button.style.backgroundColor= "";
+            /**
+             * Denna metod återställer inta alla knappar till deras ursprungliga färg.
+             */
+        })
     }
     
 
@@ -269,11 +342,33 @@ document.addEventListener("DOMContentLoaded", async function () {
             ResetButtons();
             showQuestion(currentQuestion);
         } else {
-            monoQuestionText.textContent ="Quiz complete";
-            answerButtons.forEach((button) => button.style.display = "none");
-            nextButton.style.display = "none"
-            restartButton.style.display ="flex";
+            monoGridQuestionText.textContent ="Quiz Klargjord";
+            nextButton.style.display = "none";
+            monoPictureGrid.style.display="none";
+            monoTextGrid.style.display="none";
+            polyPictureGrid.style.display="none";
+            startpage.style.display="none";
+            ToStartPageButton.style.display="flex";
+            startButton.style.display="none";
+            endScreenTextbox
+
+            const endtext = endscreen.querySelector("p");
+            endtext.textContent = `Resultat ${Number(correctanswers)}/ ${questionData.length}`;  
+            //console.log( endtext.textContent);
+            endscreen.style.display="flex";
             
+            const highscore= correctanswers;
+            localStorage.setItem("rekord",highscore);
+       
+
+            //Här bör jag egentligen jämföra tidigare världen
+            const record = highScoreElement.querySelector("p");
+             //Detta måste fixas. Den visar inte värdet
+            record.innerHTML = `<h2>Rekord: ${highscore}</h2>`;
+            //console.log(record.innerHTML);
+         
+           
+   
         }
     });
 });
@@ -281,19 +376,20 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
 function showQuestion(index){
-    //quizQuestions = questionData[index];
+
   
     if(questionData[index].typ=="mono-image")
     {
-        
+        monoTextGrid.style.display = "none";
+        polyPictureGrid.style.display ="none";
         monoPictureGrid.style.display="grid";
-        //monoQuestionText.textContent = $'{questionData[index].fraga}';
-        monoQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}:${questionData[index].fraga}</h1></p>`;
+    
+        monoQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}: ${questionData[index].fraga}</h1></p>`;
         monoImage.src = questionData[index].bild;
-        //console.log(monoImage);
-        /**Lägg till så att bilden ändras här!!!! */
+    
+      
 
-        //const answerButtons = document.querySelectorAll('.grid-item0, .grid-item1, .grid-item2, .grid-item3');
+    
       
         
         
@@ -306,10 +402,12 @@ function showQuestion(index){
         });
     }
 
-    //console.log(currentQuestion);
+   
     if(questionData[index].typ=="poly-image"){
-        polyPictureGrid.style.display ="grid";
+        monoTextGrid.style.display = "none";
         monoPictureGrid.style.display = "none";
+        polyPictureGrid.style.display ="grid";
+        
         //För bilderna
         polyQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}: ${questionData[index].fraga}</h1></p>`;
 
@@ -329,9 +427,54 @@ function showQuestion(index){
 
         });
     }
+
+    if(questionData[index].typ=="mono-text"){
+        polyPictureGrid.style.display ="none";
+        monoPictureGrid.style.display = "none";
+        monoTextGrid.style.display = "grid";
+        monoGridQuestionText.innerHTML = `<p><h1>Fråga ${questionData[index].nummer}: ${questionData[index].fraga}</h1></p>`;
+
+        //Fixa så att frågan synkas
+        //Testa sedan så att antalet korrekta svar fungerar
+         
+        monoTextAnswerButtons.forEach((button,i)=> {
+            button.disabled =false;      
+            //console.log(monoTextAnswerButtons);
+            const flexbox = button.querySelector(".button-content-mono-text");    
+            flexbox.textContent = questionData[index].svar[i];
+
+
+        });
+    }
     
-    //console.log("Buttons found:", answerButtons.length);
+  
     nextButton.style.display ="none";
 };
 
+/**
+ * restartButton.addEventListener("click", ()=>{
+    startpage.style.display="none";
+    polyPictureGrid.style.display ="none";
+    monoPictureGrid.style.display = "none";
+    monoTextGrid.style.display = "none";
+    endscreen.style.display = "none";
+    currentQuestion=0;
+    
+});
+ */
+
+
+ToStartPageButton.addEventListener("click",()=>{
+    ToStartPageButton.style.display="flex";
+    polyPictureGrid.style.display ="none";
+    monoPictureGrid.style.display = "none";
+    monoTextGrid.style.display = "none";
+    endscreen.style.display = "none";
+    currentQuestion=0;
+    correctanswer=0;
+    startButton.style.display="flex"
+    startpage.style.display="flex"
+    highScoreElement.style.display="flex";
+
+});
 
