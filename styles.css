@@ -309,9 +309,103 @@ h1{
         gap:10px;
     
     }
+     body .grid-container-mono-picture-type{
+        
+        display:none;
+        width:100%;
+        height: auto;
+        
+
+        grid-template-columns:0.5fr 1fr 1fr 0.5fr;
+        grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr ;
+
+        grid-template-areas: 
+        "header0 header1 header1 header1 "
+        ".  image image ."
+        ". text text ."
+        ". option0 option1 . "
+        ". option2  option3 . ";
+        
+        gap:10px;
+    
+    }
+    body .grid-container-poly-picture-type{
+    display:none;
+    width:100%;
+    height: auto;
+    
+
+    grid-template-columns:0.1fr 0.3fr 0.3fr 0.1fr;
+    grid-template-rows:0.2fr 1fr 0.5fr 0.2fr 1fr 0.2fr;
+
+    grid-template-areas: 
+    ".header0 header1 ."
+    ".image0 image1. "
+    ".image2 image3."
+    ". text0 text0 ."
+    ". option0 option1 ."
+    ". option2 option3  .";
+    
+    gap:10px;
+   
+    }
+
+   
+     #poly-image-0{
+        width: 30vw;
+        height: 7vh;
+    }
+    
+    #poly-image-1{
+        width: 30vw;
+        height: 7vh;
+    }
+
+    #poly-image-2{
+        width: 30vw;
+        height: 7vh;
+    }
+
+    #poly-image-3{
+        width: 30vw;
+        height: 7vh;
+    }
+
+    #poly-question-text{
+        font-size: 0.8em;
+        height: 3vh;
+        width: 90vw;
+        align-self: center;
+    }
+
+      .quest-item0{
+        height: 15vh;
+    }
+
+      .quest-item1{
+        height: 15vh;
+    }
+
+
+    .quest-item2{
+        height: 15vh;
+    }
+
+      .quest-item3{
+        height: 15vh;
+    }
+
+
+
+
+    h1{
+           font-size: 1em;
+    }
+
+
 
     .text-flexbox{
-        font-size: 0.5em;
+        font-size: 0.4em;
         padding-bottom: 0.4em;
         
     
@@ -326,7 +420,7 @@ h1{
     html,body{
         min-height: 100dvh;
         overflow-x: hidden;
-        overflow-y:auto;
+        overflow-y:hidden;
       
         margin: 0px;
         padding: 0px;
@@ -349,6 +443,8 @@ h1{
 
     footer .footer-center{
         font-size: small;
+        position: absolute;
+        bottom: 18em;
     }
     h2{
         font-size: small;
@@ -383,6 +479,7 @@ h1{
     body .grid-item3{
         height: 15vh ;
     }
+
 
 
 }
