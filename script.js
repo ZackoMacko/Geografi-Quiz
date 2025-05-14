@@ -171,7 +171,7 @@ function fetchQuestionData() {
 
 let quizQuestions;
 //Ändra till 0 efter du har testat
-let currentQuestion=17;
+let currentQuestion=0;
 
 document.addEventListener("DOMContentLoaded", async function () {
    

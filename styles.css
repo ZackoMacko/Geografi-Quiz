@@ -32,6 +32,7 @@ h1{
     flex-direction: row;
     column-gap: 1%;
     justify-content: center;
+  
     
     border-bottom-style: dotted;
     height: 7vh;
@@ -171,6 +172,7 @@ h1{
     .text-flexbox{
         justify-content: center;
         align-items: center;   
+        
     }
 
     .quest-alternative-flexbox{
@@ -204,6 +206,10 @@ h1{
       
         font-size: large;
     }
+
+    .text{
+        padding-bottom: 0.5em;
+    }
    
 }
 
@@ -233,7 +239,7 @@ h1{
 
     .start-button{
         width: 55vw;
-        height: 10vh;
+        height: 5vh;
         font-size: medium;
     }
 
@@ -277,6 +283,8 @@ h1{
         height: 17vh ;
         font-size: large;
     }
+
+
     
    
 }
@@ -303,7 +311,9 @@ h1{
     }
 
     .text-flexbox{
-        font-size: 0.57em;
+        font-size: 0.5em;
+        padding-bottom: 0.4em;
+        
     
     }
 
@@ -377,7 +387,7 @@ h1{
 
 }
 /*Situations when the phone is held horisontally*/
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width: 480px) and (max-width: 896px) {
     body .grid-container-mono-picture-type{
         display:none;
         width:100%;
@@ -407,8 +417,8 @@ h1{
     }
 
     .start-button{
-        width: 55vw;
-        height: 15vh;
+        width: 50vw;
+        height: 10vh;
         font-size: medium;
     }
 
@@ -421,7 +431,11 @@ h1{
         padding: 0px;
   
     }
-
+    
+    body   .mono-image{
+        width: 20dvw;
+        align-self: center;
+    }
     .quest-item{
         width: 70vw;
         height: auto;
@@ -454,7 +468,7 @@ h1{
         position: absolute;
         bottom:1vh;
         right: 14vw;
-        width: 14vw;
+        width: 11vw;
         height: 7vh;
         font-size: 0.5em;
         
@@ -680,6 +694,7 @@ h1{
     grid-area: image1;
     border-style: none;
     align-content: flex-end; 
+    align-self:end;
 
     display: flex;
     flex-direction: column;
@@ -701,6 +716,7 @@ h1{
     grid-area: image2;
     border-style: none;
     align-content: flex-end;
+    align-self:end;
 
     display: flex;
     flex-direction: column;
@@ -714,6 +730,7 @@ h1{
     grid-area: image3;
     border-style: none;
     align-content: flex-end;
+    align-self:end;
 
     display: flex;
     flex-direction: column;
