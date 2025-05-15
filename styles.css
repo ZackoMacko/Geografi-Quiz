@@ -332,14 +332,13 @@ h1{
     body .grid-container-poly-picture-type{
     display:none;
     width:100%;
-    height: auto;
+   
     
 
     grid-template-columns:0.1fr 0.3fr 0.3fr 0.1fr;
-    grid-template-rows:0.2fr 1fr 0.5fr 0.2fr 1fr 0.2fr;
+    grid-template-rows:1fr 0.5fr 0.2fr 1fr 0.2fr;
 
     grid-template-areas: 
-    ".header0 header1 ."
     ".image0 image1. "
     ".image2 image3."
     ". text0 text0 ."
@@ -350,7 +349,9 @@ h1{
    
     }
 
-   
+    body{
+         height:fit-content;
+    }
      #poly-image-0{
         width: 30vw;
         height: 7vh;
@@ -373,9 +374,13 @@ h1{
 
     #poly-question-text{
         font-size: 0.8em;
-        height: 3vh;
+        height: 4vh;
         width: 90vw;
         align-self: center;
+        font-size: 0.5em;
+    }
+    #polyitem0{
+        margin-top: 3em;
     }
 
       .quest-item0{
@@ -399,7 +404,7 @@ h1{
 
 
     h1{
-           font-size: 1em;
+           font-size: 2em;
     }
 
 
@@ -443,8 +448,7 @@ h1{
 
     footer .footer-center{
         font-size: small;
-        position: absolute;
-        bottom: 18em;
+      
     }
     h2{
         font-size: small;
@@ -452,7 +456,7 @@ h1{
 
     .next-button{
         position: absolute;
-        bottom:11vh;
+        bottom:14vh;
         right: 14vw;
         width: 34vw;
         height: 7vh;
@@ -555,7 +559,7 @@ h1{
         font-size: small;
         position: absolute;
         font-size:0.43em;
-        bottom: 0;
+        bottom: 1;
     }
     h2{
         font-size: small;
@@ -599,7 +603,7 @@ h1{
     width: 100vw;
     text-align: center;
     position: fixed;
-    bottom:1vh;
+    bottom:0.5vh;
     
 
 }
