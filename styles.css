@@ -573,7 +573,7 @@ h1{
         
 
         grid-template-columns:0.5fr 1fr 1fr 0.5fr;
-        grid-template-rows: 0.5fr 0.5fr 1fr 1fr 1fr ;
+        grid-template-rows: 0.5fr 0.1fr 1fr 1fr 1fr ;
 
         grid-template-areas: 
         "header0 header1 header1 header1 "
