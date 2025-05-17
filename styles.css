@@ -134,9 +134,10 @@ h1{
 
 
 /*Tablet landscape mode*/
-@media only screen and (min-width: 700px) and (max-width:1366px) {
-    body{
+@media only screen and (min-width: 700px) and (max-width:1368px) and (min-height:800px) and (max-height:1400px) {
+    html,body{
         overflow: hidden;
+
     }
     .start-button{
         width: 50vw;
@@ -164,6 +165,94 @@ h1{
         gap:1em;
         position: relative;
 
+    }
+    body .mono-text-grid{
+        display:none;
+        width:100%;
+        height: auto;
+
+
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 1fr ;
+
+        grid-template-areas: 
+        "header0 header1 header2 header3"
+        ". image image ."
+        "text text text text"
+        ".option0 option1 ."
+        ". option2 option3 .";
+
+        gap:1em;
+        position: relative;
+
+    }
+
+    body .grid-container-poly-picture-type{
+        display:none;
+        width:100%;
+
+
+
+        grid-template-columns:5vw 21vw 21vw 21vw 21vw 5vw ;
+        grid-template-rows:1fr 0.4fr 1fr 1fr ;
+
+        grid-template-areas: 
+        ". image0 image1 image2 image3 . "
+        "text0 text0 text0 text0 text0 text0"
+        ". option0 option0 option1 option1 ."
+        ". option2 option2 option3 option3 .";
+
+        gap:10px;
+   
+    }
+    body #poly-question-text{
+        width: 100vw;
+    }
+
+    #questitem0{
+      
+        width: 21vw;
+        
+    }
+
+    #poly-image-0{
+        
+        width: 17vw;
+        height: 12vh;
+      
+      
+    }
+    #questitem1{
+        width: 21vw;
+    }
+
+    #poly-image-1{
+        width: 17vw;
+        height: 12vh;
+    }
+
+    #questitem2{
+        width: 21vw;
+        
+    }
+
+    #poly-image-2{
+          width: 17vw;
+        height: 12vh;
+        
+    }
+
+    #questitem3{
+        width: 21vw;
+    }
+
+    #poly-image-3{
+         width: 17vw;
+        height: 12vh;
+    }
+
+    #polyitem0{
+        margin-top: 3em;
     }
 
     .text-flexbox{
@@ -213,7 +302,7 @@ h1{
 }
 
 /*Tablet portrait mode*/
-@media only screen and (min-width:700px) and (max-width:1024px) {
+@media only screen and (min-width:700px) and (max-width:1024px) and (min-height:1000px) {
 
    
     body .grid-container-mono-picture-type{
@@ -234,6 +323,88 @@ h1{
     
     gap:10px;
     
+    }
+
+     body .grid-container-poly-picture-type{
+    display:none;
+    width:100%;
+   
+    
+
+    grid-template-columns:0.5fr 0.5fr 0.5fr 0.5fr;
+    grid-template-rows:1fr 0.5fr 0.17fr 0.5fr 0.5fr;
+
+    grid-template-areas: 
+    ".image0 image1. "
+    ".image2 image3."
+    ". text0 text0 ."
+    ". option0 option1 ."
+    ". option2 option3  .";
+    
+    gap:10px;
+   
+    }
+
+    #poly-question-text{
+        height: 5vh;
+    }
+
+    #poly-image-0{
+        align-content: center;
+        width: 25vw;
+
+    }
+
+    #questitem0{
+        width: 50vw;
+    
+    }
+
+      #poly-image-1{
+        align-content: center;
+        width: 25vw;
+    
+    }
+
+    #questitem1{
+        width: 50vw;
+    }
+
+    #poly-image-2{
+        align-content: center;
+        width: 25vw;
+    }
+
+    #questitem2{
+        width: 50vw;
+    }
+
+    #poly-image-3{
+        align-content: center;
+        width: 25vw;
+    }
+
+    #questitem3{
+        width: 50vw;
+    }
+
+    body .mono-text-grid{
+         display:none;
+        width:100%;
+        height: auto;
+        
+
+        grid-template-columns:0.5fr 1fr 1fr 0.5fr;
+          grid-template-rows: 0.5fr 1fr 0.5fr 1fr 1fr ;
+
+        grid-template-areas: 
+        "header0 header1 header1 header1 "
+        ".  image image ."
+        ". text text ."
+        ". option0 option1 . "
+        ". option2  option3 . ";
+        
+        gap:10px;
     }
 
     .start-button{
@@ -343,24 +514,28 @@ h1{
     body{
          height:fit-content;
     }
+    .text{
+        margin-top: 2em;
+        padding-bottom: 1em;
+    }
      #poly-image-0{
         width: 30vw;
-        height: 7vh;
+        height: 10vh;
     }
     
     #poly-image-1{
         width: 30vw;
-        height: 7vh;
+        height: 10vh;
     }
 
     #poly-image-2{
         width: 30vw;
-        height: 7vh;
+        height: 10vh;
     }
 
     #poly-image-3{
         width: 30vw;
-        height: 7vh;
+        height: 10vh;
     }
 
     #poly-question-text{
@@ -523,7 +698,7 @@ h1{
    
     
 
-    grid-template-columns: 0.1fr 0.3fr 0.3fr 0.3fr 0.3fr 0.1fr ;
+    grid-template-columns: 3vw 0.3fr 0.3fr 0.3fr 0.3fr 3vw ;
     grid-template-rows:0.5fr 0.5fr 0.8fr ;
 
     grid-template-areas: 
